@@ -1,4 +1,5 @@
 
+const config = require("./config/serverconfig.json");
 const fs = require("fs");
 const mimetypes = require("./mimetype.json");
 const path = require("path");
@@ -40,8 +41,9 @@ exports.logger = (req, res) => {
           const end = hrtime.bigint();
           console.log(Number(end - start)/1000000);
           logStr += ` ${res.statusCode} ${res.statusMessage} ${Number(end - start)/1000000}ms`;
+
           console.log(logStr);
-         
+
            fs.appendFileSync('./logfile/log.txt', logStr + "\n", (err) => {
            if (err) throw err;
            console.log('The' +logStr+  'was appended to file!');
