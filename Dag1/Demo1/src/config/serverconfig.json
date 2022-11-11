@@ -5,5 +5,5 @@
     "default_doc": "html/index.html",
     "log_to_file" : true,
     "log_file" : "../public/log.txt",
-    "log_to_consol" : true
+    "log_to_console" : false
 }
