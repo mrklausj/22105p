@@ -41,6 +41,11 @@ exports.logger = (req, res) => {
           console.log(Number(end - start)/1000000);
           logStr += ` ${res.statusCode} ${res.statusMessage} ${Number(end - start)/1000000}ms`;
           console.log(logStr);
+          
+            fs.appendFileSync('./logfile/log.txt', logStr, (err) => {
+            if (err) throw err;
+            console.log('The' +logStr+  'was appended to file!');
+          });
     })
 
 }
